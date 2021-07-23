@@ -1,0 +1,23 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+    {{ block.super }}
+
+    <form action="{% url 'main:applications_edit' pk=pk %}"
+          method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        Создана: {{ application.created }}
+        <br>
+        Редактирована: {{ application.edited }}
+        <br>
+        <br>
+        <button type="submit" name="save" value="'save">
+            Сохранить
+        </button>
+        <button type="submit" name="delete" value="delete">
+            Удалить
+        </button>
+    </form>
+
+{% endblock %}

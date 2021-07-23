@@ -1,0 +1,25 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+    {{ block.super }}
+
+    <a class="btn" href="{% url 'auth:clients_add' %}">
+        Добавить +
+    </a>
+
+    <div class="col-10">
+        {% for client in clients %}
+            <div class="col-2">
+                <ul>
+                    <li>
+                        <a href="{% url 'auth:clients_edit' pk=client.id %}">
+                            {{ client.first_name }}
+                            {{ client.last_name }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
