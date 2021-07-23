@@ -1,0 +1,19 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+    {{ block.super }}
+
+    <form action="{% url 'auth:clients_edit' pk=pk %}"
+          method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" name="save" value="'save">
+            Сохранить
+        </button>
+        <button type="submit" name="delete" value="delete">
+            Удалить {{ user_delete.first_name|title }} {{ user_delete.last_name|title }}
+        </button>
+    </form>
+
+{% endblock %}

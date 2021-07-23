@@ -1,0 +1,14 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+    {{ block.super }}
+
+    <form action="{% url 'auth:login' %}"
+          method="post">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <br>
+        <input class="button" type="submit" value="Войти">
+    </form>
+
+{% endblock %}
