@@ -31,7 +31,7 @@ def main(request):
 
 
 def applications(request):
-    """Заявки"""
+    """Заявки - список"""
     if request.user.is_staff:
         form = ApplicationAddForm(request.POST, use_required_attribute=False)
 
