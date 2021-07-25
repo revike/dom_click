@@ -1,33 +1,29 @@
 from datetime import datetime
 
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import TemplateView, CreateView, UpdateView, \
+    DeleteView, ListView
 
 from main_app.forms import ApplicationAddForm
 from main_app.models import Application
 
 
-def application_edit(data, application):
-    """Редактирование заявки в базе"""
-    application.update(
-        client=data.get('client'),
-        worker=data.get('worker'),
-        title=data.get('title'),
-        content=data.get('content'),
-        status=data.get('status')
-    )
-
-
-def main(request):
+class IndexView(TemplateView):
     """Главная страница"""
-    if request.user.is_staff:
-        content = {
-            'title': 'главная страница',
-        }
-        return render(request, 'main_app/index.html', content)
-    return HttpResponseRedirect(reverse('auth:login'))
+    template_name = 'main_app/index.html'
+
+    @method_decorator(user_passes_test(lambda u: u.is_staff))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'главная страница'
+        return context
 
 
 def applications(request):
@@ -70,48 +66,98 @@ def applications(request):
     return HttpResponseRedirect(reverse('auth:login'))
 
 
-@login_required
-def applications_add(request):
+class ApplicationListView(ListView):
+    """Заявки - список"""
+    model = Application
+    template_name = 'main_app/applications.html'
+
+    @method_decorator(user_passes_test(lambda u: u.is_staff))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        form = ApplicationAddForm(
+            data=self.request.GET, use_required_attribute=False)
+
+        context['form'] = form
+        context['title'] = 'заявки'
+        context['date_gte'] = self.request.GET.get('date_gte')
+        context['date_lte'] = self.request.GET.get('date_lte')
+        return context
+
+    def get_queryset(self):
+        queryset = self.model.objects.filter(is_active=True)
+
+        title = self.request.GET.get('title')
+        if title:
+            queryset = queryset.filter(title=title)
+
+        status = self.request.GET.get('status')
+        if status:
+            queryset = queryset.filter(status=status)
+
+        date_gte = self.request.GET.get('date_gte')
+        if date_gte:
+            date__gte = datetime.strptime(date_gte, '%Y-%m-%d').date()
+            queryset = queryset.filter(created__gte=date__gte)
+
+        date_lte = self.request.GET.get('date_lte')
+        if date_lte:
+            date__lte = datetime.strptime(date_lte, '%Y-%m-%d').date()
+            queryset = queryset.filter(created__lte=date__lte)
+
+        return queryset
+
+
+class ApplicationCreateView(CreateView):
     """Добавление заявки"""
-    form = ApplicationAddForm()
-    if request.method == 'POST':
-        form = ApplicationAddForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('main:applications'))
+    model = Application
+    template_name = 'main_app/applications_add.html'
+    form_class = ApplicationAddForm
+    success_url = reverse_lazy('main:applications')
 
-    content = {
-        'title': 'добавление заявки',
-        'form': form
-    }
+    @method_decorator(user_passes_test(lambda u: u.is_staff))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
-    return render(request, 'main_app/applications_add.html', content)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'добавление заявки'
+        return context
 
 
-@login_required
-def applications_edit(request, pk):
-    """Редактирование и удаление заявки"""
-    application = Application.objects.filter(is_active=True, id=pk)
-    form = ApplicationAddForm(instance=application.first())
+class ApplicationUpdateView(UpdateView):
+    """Редактирование заявки"""
+    model = Application
+    template_name = 'main_app/edit_application.html'
+    form_class = ApplicationAddForm
+    success_url = reverse_lazy('main:applications')
 
-    if request.method == 'POST':
-        form = ApplicationAddForm(data=request.POST)
-        if form.is_valid():
-            form.save(commit=False)
-            if form.data.get('save'):
-                application_edit(form.data, application)
-            elif form.data.get('delete'):
-                application.update(is_active=False)
-            return HttpResponseRedirect(request.session['next_url'])
+    @method_decorator(user_passes_test(lambda u: u.is_staff))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
-    next_url = request.META.get('HTTP_REFERER')
-    request.session['next_url'] = next_url
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'редактирование заявки'
+        context['pk'] = self.kwargs['pk']
+        return context
 
-    content = {
-        'pk': pk,
-        'application': application.first(),
-        'title': 'редактирование заявки',
-        'form': form
-    }
 
-    return render(request, 'main_app/edit_application.html', content)
+class ApplicationDeleteView(DeleteView):
+    """Удаление заявки"""
+    model = Application
+    template_name = 'main_app/edit_application.html'
+    success_url = reverse_lazy('main:applications')
+
+    @method_decorator(user_passes_test(lambda u: u.is_staff))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.is_active:
+            self.object.is_active = False
+            self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
