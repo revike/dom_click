@@ -8,11 +8,18 @@
         {% csrf_token %}
         {{ form.as_p }}
         <br>
-        <button type="submit" name="save" value="'save">
+        <button type="submit" name="save" value="save">
             Сохранить
         </button>
+
+    </form>
+
+    <form action="{% url 'auth:clients_delete' pk=pk %}"
+          method="post">
+        {% csrf_token %}
+        <br>
         <button type="submit" name="delete" value="delete">
-            Удалить {{ user_delete.first_name|title }} {{ user_delete.last_name|title }}
+            Удалить
         </button>
     </form>
 

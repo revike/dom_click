@@ -19,5 +19,17 @@ main_app.form.py
 main_app.views.py
 ~~~~~~~~~~~~~~~~~
 
-.. automodule:: main_app.views
+.. autoclass:: main_app.views.IndexView
+    :members:
+
+.. autoclass:: main_app.views.ApplicationListView
+    :members:
+
+.. autoclass:: main_app.views.ApplicationCreateView
+    :members:
+
+.. autoclass:: main_app.views.ApplicationUpdateView
+    :members:
+
+.. autoclass:: main_app.views.ApplicationDeleteView
     :members:

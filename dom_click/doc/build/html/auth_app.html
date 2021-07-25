@@ -87,48 +87,157 @@
 </dd></dl>
 
 </section>
-<section id="module-auth_app.views">
-<span id="auth-app-views-py"></span><h2>auth_app.views.py<a class="headerlink" href="#module-auth_app.views" title="Ссылка на этот заголовок">¶</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="auth_app.views.client_edit">
-<span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">client_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.client_edit" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Редактирование клиента в базе</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auth_app.views.clients">
-<span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">clients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.clients" title="Ссылка на это определение">¶</a></dt>
+<section id="auth-app-views-py">
+<h2>auth_app.views.py<a class="headerlink" href="#auth-app-views-py" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="auth_app.views.ClientListView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">ClientListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientListView" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Клиенты</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.ClientListView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientListView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Get the context for this view.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="auth_app.views.clients_add">
-<span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">clients_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.clients_add" title="Ссылка на это определение">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.ClientListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#auth_app.views.ClientListView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.models.Client" title="auth_app.models.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.models.Client</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="auth_app.views.ClientCreateView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">ClientCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientCreateView" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Добавление клиентов</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.ClientCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#auth_app.views.ClientCreateView.form_class" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.forms.ClientAddForm" title="auth_app.forms.ClientAddForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.forms.ClientAddForm</span></code></a></p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="auth_app.views.clients_edit">
-<span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">clients_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.clients_edit" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Изменение и удаление клиентов</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.ClientCreateView.form_valid">
+<span class="sig-name descname"><span class="pre">form_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientCreateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="auth_app.views.login">
-<span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.login" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Авторизация</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.ClientCreateView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientCreateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="auth_app.views.logout">
-<span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.logout" title="Ссылка на это определение">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.ClientCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#auth_app.views.ClientCreateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.models.Client" title="auth_app.models.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.models.Client</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="auth_app.views.ClientUpdateView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">ClientUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientUpdateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Изменение клиентов</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.ClientUpdateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#auth_app.views.ClientUpdateView.form_class" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.forms.ClientAddForm" title="auth_app.forms.ClientAddForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.forms.ClientAddForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.ClientUpdateView.form_valid">
+<span class="sig-name descname"><span class="pre">form_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientUpdateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.ClientUpdateView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientUpdateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.ClientUpdateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#auth_app.views.ClientUpdateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.models.Client" title="auth_app.models.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.models.Client</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="auth_app.views.ClientDeleteView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">ClientDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientDeleteView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Удаление клиентов</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.ClientDeleteView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientDeleteView.delete" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Call the delete() method on the fetched object and then redirect to the
+success URL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.ClientDeleteView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.ClientDeleteView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the single object into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.ClientDeleteView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#auth_app.views.ClientDeleteView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.models.Client" title="auth_app.models.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.models.Client</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="auth_app.views.WorkerListView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">WorkerListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.WorkerListView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Сотрудники</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.WorkerListView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.WorkerListView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Get the context for this view.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.WorkerListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#auth_app.views.WorkerListView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.models.Client" title="auth_app.models.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.models.Client</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="auth_app.views.LogoutView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">LogoutView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.LogoutView" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Выход</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="auth_app.views.workers">
-<span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">workers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.workers" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Сотрудники</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="auth_app.views.LoginAuthView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">auth_app.views.</span></span><span class="sig-name descname"><span class="pre">LoginAuthView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.LoginAuthView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Авторизация</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="auth_app.views.LoginAuthView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#auth_app.views.LoginAuthView.form_class" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#auth_app.forms.UserLoginForm" title="auth_app.forms.UserLoginForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">auth_app.forms.UserLoginForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.LoginAuthView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.LoginAuthView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="auth_app.views.LoginAuthView.get_success_url">
+<span class="sig-name descname"><span class="pre">get_success_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auth_app.views.LoginAuthView.get_success_url" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Return the URL to redirect to after processing a valid form.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -158,7 +267,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Приложение, которое отвечает за авторизацию и управление юзерами</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#auth-app-models-py">auth_app.models.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#auth-app-form-py">auth_app.form.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-auth_app.views">auth_app.views.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auth-app-views-py">auth_app.views.py</a></li>
 </ul>
 </li>
 </ul>

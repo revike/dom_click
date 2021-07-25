@@ -7,7 +7,7 @@
         Добавить +
     </a>
     <br>
-    <form action="." method="post">
+    <form action="." method="get">
         {% csrf_token %}
         Тип: {{ form.title }}
         Статус: {{ form.status }}
@@ -18,11 +18,11 @@
 
     <br>
     <div class="col-10">
-        {% for application in applications %}
+        {% for application in object_list %}
             <div class="col-10">
                 <ul>
                     <li>
-                        <a href="{% url 'main:applications_edit' pk=application.id %}">
+                        <a href="{% url 'main:applications_edit' application.id %}">
                             Описание: {{ application.content }}
                             от {{ application.client.first_name }} {{ application.client.last_name }}
                             email: {{ application.client.email }}

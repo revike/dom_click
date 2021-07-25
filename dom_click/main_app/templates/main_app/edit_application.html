@@ -15,6 +15,13 @@
         <button type="submit" name="save" value="'save">
             Сохранить
         </button>
+    </form>
+
+    <br>
+
+    <form action="{% url 'main:applications_delete' pk=pk %}"
+          method="post">
+        {% csrf_token %}
         <button type="submit" name="delete" value="delete">
             Удалить
         </button>
