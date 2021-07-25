@@ -64,36 +64,105 @@
 </dd></dl>
 
 </section>
-<section id="module-main_app.views">
-<span id="main-app-views-py"></span><h2>main_app.views.py<a class="headerlink" href="#module-main_app.views" title="Ссылка на этот заголовок">¶</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="main_app.views.application_edit">
-<span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">application_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">application</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.application_edit" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Редактирование заявки в базе</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="main_app.views.applications">
-<span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">applications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.applications" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Заявки - список</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="main_app.views.applications_add">
-<span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">applications_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.applications_add" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Добавление заявки</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="main_app.views.applications_edit">
-<span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">applications_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.applications_edit" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Редактирование и удаление заявки</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="main_app.views.main">
-<span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.main" title="Ссылка на это определение">¶</a></dt>
+<section id="main-app-views-py">
+<h2>main_app.views.py<a class="headerlink" href="#main-app-views-py" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main_app.views.IndexView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">IndexView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.IndexView" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Главная страница</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_app.views.ApplicationListView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">ApplicationListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationListView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Заявки - список</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_app.views.ApplicationListView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationListView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Get the context for this view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_app.views.ApplicationListView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationListView.get_queryset" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main_app.views.ApplicationListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#main_app.views.ApplicationListView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#main_app.models.Application" title="main_app.models.Application"><code class="xref py py-class docutils literal notranslate"><span class="pre">main_app.models.Application</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_app.views.ApplicationCreateView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">ApplicationCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationCreateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Добавление заявки</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main_app.views.ApplicationCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#main_app.views.ApplicationCreateView.form_class" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#main_app.forms.ApplicationAddForm" title="main_app.forms.ApplicationAddForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">main_app.forms.ApplicationAddForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_app.views.ApplicationCreateView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationCreateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main_app.views.ApplicationCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#main_app.views.ApplicationCreateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#main_app.models.Application" title="main_app.models.Application"><code class="xref py py-class docutils literal notranslate"><span class="pre">main_app.models.Application</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_app.views.ApplicationUpdateView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">ApplicationUpdateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationUpdateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Редактирование заявки</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main_app.views.ApplicationUpdateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#main_app.views.ApplicationUpdateView.form_class" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#main_app.forms.ApplicationAddForm" title="main_app.forms.ApplicationAddForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">main_app.forms.ApplicationAddForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_app.views.ApplicationUpdateView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationUpdateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main_app.views.ApplicationUpdateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#main_app.views.ApplicationUpdateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#main_app.models.Application" title="main_app.models.Application"><code class="xref py py-class docutils literal notranslate"><span class="pre">main_app.models.Application</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_app.views.ApplicationDeleteView">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main_app.views.</span></span><span class="sig-name descname"><span class="pre">ApplicationDeleteView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationDeleteView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Удаление заявки</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_app.views.ApplicationDeleteView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main_app.views.ApplicationDeleteView.delete" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Call the delete() method on the fetched object and then redirect to the
+success URL.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main_app.views.ApplicationDeleteView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#main_app.views.ApplicationDeleteView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#main_app.models.Application" title="main_app.models.Application"><code class="xref py py-class docutils literal notranslate"><span class="pre">main_app.models.Application</span></code></a></p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -122,7 +191,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Приложение, которое отвечает за Заявки и главную страницу</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#main-app-models-py">main_app.models.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#main-app-form-py">main_app.form.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-main_app.views">main_app.views.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-app-views-py">main_app.views.py</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auth_app.html">Приложение, которое отвечает за авторизацию и управление юзерами</a></li>
@@ -161,6 +230,14 @@
     </div>
     <div class="footer">
       &copy;2021, Evgenii Fedorin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/main_app.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     

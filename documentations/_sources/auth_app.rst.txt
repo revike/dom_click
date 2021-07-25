@@ -29,5 +29,23 @@ auth_app.form.py
 auth_app.views.py
 ~~~~~~~~~~~~~~~~~
 
-.. automodule:: auth_app.views
+.. autoclass:: auth_app.views.ClientListView
+    :members:
+
+.. autoclass:: auth_app.views.ClientCreateView
+    :members:
+
+.. autoclass:: auth_app.views.ClientUpdateView
+    :members:
+
+.. autoclass:: auth_app.views.ClientDeleteView
+    :members:
+
+.. autoclass:: auth_app.views.WorkerListView
+    :members:
+
+.. autoclass:: auth_app.views.LogoutView
+    :members:
+
+.. autoclass:: auth_app.views.LoginAuthView
     :members:
