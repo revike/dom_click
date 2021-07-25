@@ -46,7 +46,7 @@ class ApplicationListView(ListView):
         return context
 
     def get_queryset(self):
-        queryset = self.model.objects.filter(is_active=True)
+        queryset = self.model.objects.filter(is_active=True).select_related()
 
         title = self.request.GET.get('title')
         if title:
